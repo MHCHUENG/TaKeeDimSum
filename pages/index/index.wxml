@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <image
+    class="image"
+    src="../../images/index/bg.jpg"
+    mode="aspectFill"
+  />
+</view>
