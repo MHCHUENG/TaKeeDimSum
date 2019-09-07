@@ -1,0 +1,37 @@
+.page {
+  padding: 0 0 60rpx;
+}
+
+text, image, .video {
+  display: block;
+}
+
+text, image, .video {
+  margin: 0 40rpx;
+}
+
+image, .video {
+  width: calc(100vw - 80rpx);
+  margin-top: 40rpx;
+}
+
+.title {
+  padding: 30rpx 0 0;
+  color: #232321;
+  font-size: 56rpx;
+  font-weight: bold;
+}
+
+.p {
+  margin-top: 50rpx;
+  color: #666;
+  font-size: 32rpx;
+  line-height: 2;
+  font-weight: 400;
+}
+
+.author {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #BEC2C6;
+}

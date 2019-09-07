@@ -2,13 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/story/story",
-    "pages/shop/shop"
+    "pages/shop/shop",
+    "pages/post/post"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "德記大安點心",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ededed"
   },
   "tabBar": {
     "color": "#BEC2C6",

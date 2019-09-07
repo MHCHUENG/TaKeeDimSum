@@ -1,0 +1,15 @@
+<!--logs.wxml-->
+<view class="page">
+  <block wx:for="{{post}}">
+    <text wx:if="{{item.type === 'title'}}" class="title">{{item.ctn}}</text>
+    <text wx:if="{{item.type === 'p'}}" class="p">{{item.ctn}}</text>
+    <text wx:if="{{item.type === 'author'}}" class="author">文 / {{item.ctn}}</text>
+    <video wx:if="{{item.type === 'video'}}" src="{{item.src}}" class="video"></video>
+    <image
+      wx:if="{{item.type === 'image'}}"
+      class="img"
+      src="{{item.src}}"
+      mode="{{item.mode || 'widthFix'}}"
+    ></image>  
+  </block>
+</view>

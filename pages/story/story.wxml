@@ -1,6 +1,27 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
+<view class="post">
+  <block wx:for="{{list}}" wx:key="id">
+    <view class="post_item">
+      <navigator url="/pages/post/post?id={{item.id}}" hover-class="none">
+        <view class="info">
+          <text class="title">{{item.title}}</text>
+          <view class="desc">
+            <text class="author">文 / {{item.author}}</text>
+          </view>
+        </view>
+
+        <view class="banner">
+          <image
+            class="banner_image"
+            src="{{item.banner.src}}"
+            mode="{{item.banner.mode || 'aspectFill'}}"
+          ></image>
+        </view>
+
+        <view class="prevview">
+          <text class="prevview_post">{{item.lead}}</text>
+        </view>
+      </navigator>
+    </view>
   </block>
 </view>
