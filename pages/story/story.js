@@ -1,12 +1,24 @@
-const articleList = require('../../articles/story-list')
+const app = getApp()
+
 Page({
   data: {
     list: []
   },
 
   onLoad: function () {
-    this.setData({
-      list: articleList
-    })
+    this.getListData();
+  },
+
+  getListData: function () {
+    const _this = this;
+    const APIs = app.globalData.APIs['articleList'];
+    wx.request({
+      url: APIs,
+      success: function (res) {
+        _this.setData({
+          list: res.data
+        })
+      }
+    });
   }
 })

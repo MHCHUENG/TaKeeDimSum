@@ -20,7 +20,7 @@
       {
         "pagePath": "pages/index/index",
         "text": "德記點心",
-        "iconPath": "images/tab-bar/home.png",
+        "iconPath": "images/tab-bar/home_selected.png",
         "selectedIconPath": "images/tab-bar/home_selected.png"
       },
 
@@ -28,14 +28,14 @@
         "pagePath": "pages/story/story",
         "text": "德記故事",
         "iconPath": "images/tab-bar/story.png",
-        "selectedIconPath": "images/tab-bar/story_selected.png"
+        "selectedIconPath": "images/tab-bar/story.png"
       },
 
       {
         "pagePath": "pages/shop/shop",
         "text": "德記店鋪",
         "iconPath": "images/tab-bar/shop.png",
-        "selectedIconPath": "images/tab-bar/shop_selected.png"
+        "selectedIconPath": "images/tab-bar/shop.png"
       }
     ]
   },

@@ -1,0 +1,5 @@
+{
+  "dimSumByPinNan": "https://demo.missoy.me/TaKeeDimSum/json/dim-sum-pinnan.json",
+  "childDimSum": "https://demo.missoy.me/TaKeeDimSum/json/dim-sum-child.json",
+  "articleList": "https://demo.missoy.me/TaKeeDimSum/json/article-list.json"
+}

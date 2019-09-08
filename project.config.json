@@ -5,6 +5,10 @@
 			{
 				"type": "folder",
 				"value": "images/post"
+			},
+			{
+				"type": "folder",
+				"value": "jsons"
 			}
 		]
 	},
