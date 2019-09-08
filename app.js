@@ -17,5 +17,22 @@ App({
 
   globalData: {
     APIs: []
+  },
+
+  wxRequire: function (opt, success, fail) {
+    if (!opt) return [];
+    let ret = [];
+
+    wx.request({
+      ...opt,
+      success: function (res) {
+        if (typeof success !== 'function') return;
+        success(res)
+      },
+      fail: function () {
+        if (typeof fail !== 'function') return;
+        fail()
+      }
+    });
   }
 })

@@ -15,13 +15,12 @@ Page({
     const postAPI = app.globalData.APIs[id];
     if (!postAPI) return;
 
-    wx.request({
-      url: postAPI,
-      success: function (res) {
-        _this.setData({
-          post: res.data
-        })
-      }
+    app.wxRequire({
+      url: postAPI
+    }, function (res) {
+      _this.setData({
+        post: res.data
+      })
     });
   },
 
