@@ -13,7 +13,7 @@ const post = [
   },
   {
     type: 'video',
-    src: 'https://ugcws.video.gtimg.com/uwMROfz2r5zCIaQXGdGnC2dfDmavB6NbsWKJAiRTQBPbT70a/t05319zu530.mp4?sdtfrom=v1010&guid=1c5dea0a4a0177bb5fcaac09d6c5c6a9&vkey=AA5336C363A3EC2A8EFEF74C88EAD1715B350907925436C54F46EDC5EB9C313548FECE2568017494A9D4F8C2DC6F262B5EE479FA0ADA56AFD1CFA6D9918468E8F5A37E5A6A6CEDA65CE4FF46D88D1C949D8846403EFF4109E66877ED71B71E2741D963F0E8774254C0EE082CC965FBB48AFFB76DBE775C400F540421C1D43948'
+    src: 'https://demo.missoy.me/TaKeeDimSum/TaKeeDimSum.mp4'
   },
   {
     type: 'p',
@@ -89,11 +89,11 @@ const post = [
   },
   {
     type: 'image',
-    src: 'https://demo.missoy.me/TaKeeDimSum/post/dim-sum-pinnan/img9.jpeg'
+    src: 'https://demo.missoy.me/TaKeeDimSum/post/dim-sum-pinnan/banner.jpg'
   },
   {
     type: 'image',
-    src: 'https://demo.missoy.me/TaKeeDimSum/post/dim-sum-pinnan/banner.jpg'
+    src: 'https://demo.missoy.me/TaKeeDimSum/post/dim-sum-pinnan/img17.jpeg'
   },
   {
     type: 'image',

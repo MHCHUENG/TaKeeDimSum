@@ -10,6 +10,7 @@
       class="img"
       src="{{item.src}}"
       mode="{{item.mode || 'widthFix'}}"
+      show-menu-by-longpress="{{true}}"
     ></image>  
   </block>
 </view>
