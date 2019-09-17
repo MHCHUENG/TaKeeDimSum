@@ -75,10 +75,5 @@
       src="/images/shop/food.jpg"
       mode="aspectFill"
     />
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
   </view>
 </view>

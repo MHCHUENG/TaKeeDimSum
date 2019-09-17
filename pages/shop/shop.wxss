@@ -98,10 +98,13 @@ page {
 .image_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  flex-basis: 200rpx;
+  justify-content: space-evenly;
+  padding: 10rpx 0 40rpx;
 }
 
 .shop_img{
-  display: block;
+  flex-grow: 1;
+  flex-basis: 200rpx;
+  max-width: 200rpx;
+  height: 200rpx;
 }
