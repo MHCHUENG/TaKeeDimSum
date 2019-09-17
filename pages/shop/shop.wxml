@@ -50,30 +50,37 @@
 <view class="shop_image">
   <text class="shop_title">店内实店</text>
   <view class="image_box">
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
-    <image
-      class="shop_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
-    />
+    <view class="image_box_row">
+      <image
+        class="shop_img"
+        src="/images/shop/food.jpg"
+        mode="aspectFill"
+      />
+      <image
+        class="shop_img"
+        src="/images/shop/food.jpg"
+        mode="aspectFill"
+      />
+      <image
+        class="shop_img"
+        src="/images/shop/food.jpg"
+        mode="aspectFill"
+      />
+    </view>
+
+    <view class="image_box_row">
+      <image
+        class="shop_img"
+        src="/images/shop/food.jpg"
+        mode="aspectFill"
+      />
+      <image
+        class="shop_img"
+        src="/images/shop/food.jpg"
+        mode="aspectFill"
+      />
+
+      <view class="shop_img"></view>
+    </view>
   </view>
 </view>
