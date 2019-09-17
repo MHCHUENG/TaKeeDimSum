@@ -1,4 +1,84 @@
 <!--logs.wxml-->
-<view class="story">
-  爆肝开发中...
+<view class="focus">
+  <view class="banner">
+    <image
+      class="img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="avatar"
+      src="/images/shop/Ta.jpg"
+    />
+  </view>
+
+  <text class="slogan">百年傳承，堅守初心，匠心打造</text>
+</view>
+
+<view class="info">
+  <view class="info_item">
+    <image
+      class="info_icon"
+      src="/images/shop/call.png"
+      mode="aspectFit"
+    />
+    <text class="desc">餐厅电话：135-5835-3489</text>
+    <view class="arrow"></view>
+  </view>
+
+  <view class="info_item">
+    <image
+      class="info_icon"
+      src="/images/shop/clock.png"
+      mode="aspectFit"
+    />
+    <text class="desc">营业时间：07:00 - 16:30</text>
+    <view class="arrow"></view>
+  </view>
+
+  <view class="info_item">
+    <image
+      class="info_icon"
+      src="/images/shop/location.png"
+      mode="aspectFit"
+    />
+    <text class="desc">地址：大安镇新南路吉祥窗帘隔离</text>
+    <view class="arrow"></view>
+  </view>
+</view>
+
+<view class="shop_image">
+  <text class="shop_title">店内实店</text>
+  <view class="image_box">
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+    <image
+      class="shop_img"
+      src="/images/shop/food.jpg"
+      mode="aspectFill"
+    />
+  </view>
 </view>
