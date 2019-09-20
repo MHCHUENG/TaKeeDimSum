@@ -9,7 +9,7 @@ Page({
 
   onLoad: function () {
     this.isFetchError = false;
-    setTimeout(this.getListData, 1000);
+    this.getListData();
   },
 
   onShow: function () {
