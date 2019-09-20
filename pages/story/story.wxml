@@ -1,7 +1,7 @@
 <view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
   <view class="post">
     <block wx:for="{{skeletonData}}">
-      <view class="post_item skeleton_loading">
+      <view class="post_item">
         <view class="info">
           <view class="title">
             <view class="skeleton_txt"></view>

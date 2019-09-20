@@ -32,6 +32,8 @@ Page({
 
   getListData: function () {
     const APIs = app.globalData.APIs['articleList'] || '';
+    if (!APIs) return;
+
     app.wxRequire({
       url: APIs
     }, this.setListData, this.fetchError);

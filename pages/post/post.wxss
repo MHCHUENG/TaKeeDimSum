@@ -35,3 +35,27 @@ image, .video {
   font-size: 28rpx;
   color: #BEC2C6;
 }
+
+.skeleton {
+  background: #fff;
+}
+
+.skeleton .title .skeleton_txt {
+  height: 100rpx;
+  margin: 0 40rpx;
+}
+
+.skeleton .author .skeleton_txt {
+  margin: 0 40rpx;
+  height: 40rpx;
+  width: 30%;
+}
+
+.skeleton .p .skeleton_txt {
+  margin: 20rpx 40rpx 0;
+  height: 40rpx;
+}
+
+.skeleton .img .skeleton_image {
+  margin: 50rpx 40rpx 0;
+}

@@ -1,27 +1,48 @@
+const skeletonsConfig = require('../../config/skeletons.js');
 const app = getApp();
 
 Page({
   data: {
-    post: []
+    skeletonData: skeletonsConfig.post,
+    post: [],
+    isLoading: true,
   },
 
   onLoad: function (query) {
     const { id } = query || {}
-    this.setPostData(id)
+    this.isFetchError = false;
+    this.id = id;
+    this.getPostData(id);
   },
 
-  setPostData: function (id) {
-    const _this = this;
+  onShow: function (query) {
+    if (this.isFetchError) {
+      this.isFetchError = false;
+      this.getPostData();
+    }
+  },
+
+  getDataPostSuccess: function (res) {
+    this.setData({
+      post: res.data,
+      isLoading: false
+    })
+  },
+
+  getPostDataError: function () {
+    this.isFetchError = true;
+  },
+
+  getPostData: function (id) {
+    id = id || this.id;
+    if (!id) return;
+
     const postAPI = app.globalData.APIs[id];
     if (!postAPI) return;
 
     app.wxRequire({
       url: postAPI
-    }, function (res) {
-      _this.setData({
-        post: res.data
-      })
-    });
+    }, this.getDataPostSuccess, this.getPostDataError);
   },
 
   setPreviewImage: function (current, urls) {

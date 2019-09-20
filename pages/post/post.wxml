@@ -1,6 +1,12 @@
-<!--logs.wxml-->
-<view class="page">
-  <block wx:for="{{post}}">
+<view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
+  <view wx:for="{{skeletonData}}" wx:for-item="colItem" wx:key="skeleton_{{index}}" class="{{colItem.type}}">
+    <view class="{{colItem.type === 'img' || colItem.type === 'video' ? 'skeleton_image' : 'skeleton_txt'}}" wx:for="{{colItem.child}}"></view>
+  </view>
+</view>
+
+
+<view class="page" wx:if="{{!isLoading}}">
+  <block wx:for="{{post}}" wx:key="post_{{index}}">
     <text wx:if="{{item.type === 'title'}}" class="title">{{item.ctn}}</text>
     <text wx:if="{{item.type === 'p'}}" class="p">{{item.ctn}}</text>
     <text wx:if="{{item.type === 'author'}}" class="author">文 / {{item.ctn}}</text>
