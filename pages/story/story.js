@@ -2,22 +2,38 @@ const app = getApp();
 
 Page({
   data: {
-    list: []
+    skeletonData: new Array(3),
+    list: [],
+    isLoading: true,
   },
 
   onLoad: function () {
-    this.getListData();
+    this.isFetchError = false;
+    setTimeout(this.getListData, 1000);
+  },
+
+  onShow: function () {
+    if (this.isFetchError) {
+      this.isFetchError = false;
+      this.getListData();
+    }
+  },
+
+  setListData: function (res) {
+    this.setData({
+      list: res.data,
+      isLoading: false,
+    })
+  },
+
+  fetchError: function () {
+    this.isFetchError = true;
   },
 
   getListData: function () {
-    const _this = this;
-    const APIs = app.globalData.APIs['articleList'];
+    const APIs = app.globalData.APIs['articleList'] || '';
     app.wxRequire({
       url: APIs
-    }, function (res) {
-      _this.setData({
-        list: res.data
-      })
-    });
+    }, this.setListData, this.fetchError);
   }
 })

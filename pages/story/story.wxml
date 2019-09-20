@@ -1,5 +1,29 @@
-<!--logs.wxml-->
-<view class="post">
+<view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
+  <view class="post">
+    <block wx:for="{{skeletonData}}">
+      <view class="post_item skeleton_loading">
+        <view class="info">
+          <view class="title">
+            <view class="skeleton_txt"></view>
+          </view>
+          <view class="desc">
+            <view class="skeleton_txt"></view>
+          </view>
+        </view>
+        <view class="banner skeleton_image"></view>
+        <view class="preview">
+          <view class="skeleton_txt"></view>
+          <view class="skeleton_txt"></view>
+          <view class="skeleton_txt"></view>
+          <view class="skeleton_txt"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<view class="post" wx:if="{{!isLoading}}">
   <block wx:for="{{list}}" wx:key="id">
     <view class="post_item">
       <navigator url="/pages/post/post?id={{item.id}}" hover-class="none">
@@ -18,7 +42,7 @@
           ></image>
         </view>
 
-        <view class="prevview">
+        <view class="preview">
           <text class="prevview_post">{{item.lead}}</text>
         </view>
       </navigator>

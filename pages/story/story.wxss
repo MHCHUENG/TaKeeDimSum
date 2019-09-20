@@ -50,7 +50,7 @@ page {
   height: 100%;
 }
 
-.prevview {
+.preview {
   margin: 20rpx 0 0;
 }
 
@@ -60,4 +60,19 @@ page {
   color: #666;
   line-height: 1.6;
   text-align: justify;
+}
+
+.skeleton .preview .skeleton_txt {
+  margin: 20rpx 0 0;
+  height: 40rpx;
+}
+
+.skeleton .title .skeleton_txt {
+  width: 80%;
+  height: 66rpx;
+}
+
+.skeleton .desc .skeleton_txt {
+  width: 30%;
+  height: 40rpx;
 }

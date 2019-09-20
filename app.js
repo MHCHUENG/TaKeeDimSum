@@ -4,13 +4,13 @@ App({
   },
 
   getAPIsMap: function () {
-    const _this = this
+    const _this = this;
     wx.request({
       url: 'https://demo.missoy.me/TaKeeDimSum/json/api.json',
       success: function (res) {
         _this.globalData = {
           APIs: res.data
-        }
+        };
       }
     });
   },
@@ -24,15 +24,19 @@ App({
     let ret = [];
 
     wx.request({
-      ...opt,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
       success: function (res) {
         if (typeof success !== 'function') return;
-        success(res)
+        success(res);
       },
       fail: function () {
         if (typeof fail !== 'function') return;
-        fail()
-      }
+        fail();
+      },
+      ...opt,
     });
   }
 })
