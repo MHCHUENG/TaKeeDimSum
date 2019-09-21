@@ -2,17 +2,18 @@
 <view class="focus">
   <view class="banner">
     <image
-      class="img"
+      class="focus_info_img"
       src="/images/shop/food.jpg"
       mode="aspectFill"
     />
+  </view>
+  <view class="focus_info">
     <image
       class="avatar"
       src="/images/shop/Ta.jpg"
     />
+    <text class="slogan">百年傳承，堅守初心，匠心打造</text>
   </view>
-
-  <text class="slogan">百年傳承，堅守初心，匠心打造</text>
 </view>
 
 <view class="info">

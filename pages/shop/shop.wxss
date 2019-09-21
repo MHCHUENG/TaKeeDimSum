@@ -3,45 +3,50 @@ page {
 }
 
 .focus {
-  padding: 0 0 30rpx;
+  position: relative;
+  height: 480rpx;
   background: #fff;
 }
 
 .banner {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.img {
+.focus_info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.focus_info_img {
   width: 100%;
-  height: 300rpx;
+  height: 100%;
+  filter: blur(10rpx);
+  transform: scale(1.1);
 }
 
 .avatar {
-  position: absolute;
-  bottom: -100rpx;
-  left: 50%;
-  width: 200rpx;
-  height: 200rpx;
-  transform: translateX(-50%);
+  width: 280rpx;
+  height: 280rpx;
+  border-radius: 50%;
   box-shadow: 0 0 30rpx rgba(0,0,0,.1);
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 280rpx;
-  height: 100rpx;
-  font-size: 40rpx;
-}
-
 .slogan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32rpx;
-  min-height: 40rpx;
-  margin: 130rpx 0 0 0;
-  color: #85878C;
+  font-size: 36rpx;
+  margin: 40rpx 0 0 0;
+  color: #fff;
+  opacity: 0.9;
+  font-weight: 300;
 }
 
 .info {
