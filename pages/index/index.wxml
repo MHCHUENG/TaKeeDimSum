@@ -1,8 +1,36 @@
 <!--index.wxml-->
-<view class="container">
+<view class="bg">
   <image
     class="image"
     src="../../images/index/bg.jpg"
     mode="aspectFill"
   />
+</view>
+
+<view class="focus">
+  <view class="main">
+    <view class="info">
+
+      <image
+        class="info_img"
+        src="../../images/shop/Ta.jpg"
+        mode="aspectFill"
+      />
+      <text class="slogan">百年傳承 匠心打造</text>
+      <text class="slogan">德心經營 始記初心</text>
+      <view class="go">
+        <image
+          class="go_img"
+          src="../../images/index/go.png"
+          mode="aspectFill"
+        />
+        <text class="goTxt">約定你</text>
+        <text class="goTxt">不見不散</text>
+      </view>
+    </view>
+    <view class="title">
+      <text class="takee">德記</text>
+      <text class="dimSum">大安點心</text>
+    </view>
+  </view>
 </view>

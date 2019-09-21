@@ -4,7 +4,7 @@ page {
 
 .focus {
   position: relative;
-  height: 480rpx;
+  height: 440rpx;
   background: #fff;
 }
 
@@ -30,8 +30,8 @@ page {
 .focus_info_img {
   width: 100%;
   height: 100%;
-  filter: blur(10rpx);
-  transform: scale(1.1);
+  /* filter: blur(10rpx); */
+  /* transform: scale(1.1); */
 }
 
 .avatar {
@@ -73,7 +73,7 @@ page {
 
 .desc {
   font-size: 28rpx;
-  color: #232323;
+  color: #85878C;
 }
 
 .arrow {
@@ -81,13 +81,15 @@ page {
   right: 20rpx;
   width: 20rpx;
   height: 20rpx;
-  border-top: 0.5rpx solid #BEC2C6;
-  border-right: 0.5rpx solid #BEC2C6;
+  border-top: 0.5rpx solid #85878C;
+  border-right: 0.5rpx solid #85878C;
   transform: rotate(45deg);
 }
 
 .shop_image {
+  min-height: 300rpx;
   margin: 40rpx 0 0;
+  padding: 0 0 40rpx;
   background: #ffffff;
 }
 

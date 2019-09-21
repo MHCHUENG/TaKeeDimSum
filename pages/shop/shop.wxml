@@ -8,42 +8,27 @@
     />
   </view>
   <view class="focus_info">
-    <image
+    <!-- <image
       class="avatar"
       src="/images/shop/Ta.jpg"
-    />
-    <text class="slogan">百年傳承，堅守初心，匠心打造</text>
+    /> -->
+    <!-- <text class="slogan">百年傳承，堅守初心，匠心打造</text> -->
   </view>
 </view>
 
 <view class="info">
-  <view class="info_item">
+  <view class="info_item"
+    wx:for="{{info}}"
+    wx:key="shopInfo_{{index}}"
+    data-phone-number="{{item.phoneNumeber}}"
+    bindtap="{{item.bindName}}"
+  >
     <image
       class="info_icon"
-      src="/images/shop/call.png"
+      src="{{item.iconSrc}}"
       mode="aspectFit"
     />
-    <text class="desc">餐厅电话：135-5835-3489</text>
-    <view class="arrow"></view>
-  </view>
-
-  <view class="info_item">
-    <image
-      class="info_icon"
-      src="/images/shop/clock.png"
-      mode="aspectFit"
-    />
-    <text class="desc">营业时间：07:00 - 16:30</text>
-    <view class="arrow"></view>
-  </view>
-
-  <view class="info_item">
-    <image
-      class="info_icon"
-      src="/images/shop/location.png"
-      mode="aspectFit"
-    />
-    <text class="desc">地址：大安镇新南路吉祥窗帘隔离</text>
+    <text class="desc">{{item.title}}</text>
     <view class="arrow"></view>
   </view>
 </view>
@@ -53,35 +38,14 @@
   <view class="image_box">
     <view class="image_box_row">
       <image
+        wx:for="{{shopImage}}"
+        wx:key="shopImage_{{index}}"
         class="shop_img"
-        src="/images/shop/food.jpg"
+        src="{{item.src}}"
         mode="aspectFill"
+        bindtap="tapImage"
+        data-src="{{item.src}}"
       />
-      <image
-        class="shop_img"
-        src="/images/shop/food.jpg"
-        mode="aspectFill"
-      />
-      <image
-        class="shop_img"
-        src="/images/shop/food.jpg"
-        mode="aspectFill"
-      />
-    </view>
-
-    <view class="image_box_row">
-      <image
-        class="shop_img"
-        src="/images/shop/food.jpg"
-        mode="aspectFill"
-      />
-      <image
-        class="shop_img"
-        src="/images/shop/food.jpg"
-        mode="aspectFill"
-      />
-
-      <view class="shop_img"></view>
     </view>
   </view>
 </view>
