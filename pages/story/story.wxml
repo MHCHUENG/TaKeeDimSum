@@ -1,24 +1,24 @@
 <view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
   <view class="post">
-    <block wx:for="{{skeletonData}}">
-      <view class="post_item">
-        <view class="info">
-          <view class="title">
-            <view class="skeleton_txt"></view>
-          </view>
-          <view class="desc">
-            <view class="skeleton_txt"></view>
-          </view>
+    <view class="post_item" wx:for="{{skeletonData}}" wx:key="skeletonData_{{index}}">
+      <view class="info">
+        <view class="title">
+          <view class="skeleton_txt"></view>
         </view>
-        <view class="banner skeleton_image"></view>
-        <view class="preview">
-          <view class="skeleton_txt"></view>
-          <view class="skeleton_txt"></view>
-          <view class="skeleton_txt"></view>
+        <view class="desc">
           <view class="skeleton_txt"></view>
         </view>
       </view>
-    </block>
+      <view class="banner">
+        <view class="skeleton_image"></view>
+      </view>
+      <view class="preview">
+        <view class="skeleton_txt"></view>
+        <view class="skeleton_txt"></view>
+        <view class="skeleton_txt"></view>
+        <view class="skeleton_txt"></view>
+      </view>
+    </view>
   </view>
 </view>
 

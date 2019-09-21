@@ -2,7 +2,7 @@ const app = getApp();
 
 Page({
   data: {
-    skeletonData: new Array(3),
+    skeletonData: new Array(2),
     list: [],
     isLoading: true,
   },

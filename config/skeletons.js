@@ -23,7 +23,7 @@ const post = [
     type: 'img',
     child: new Array(1)
   },
-]
+];
 
 module.exports = {
   post
