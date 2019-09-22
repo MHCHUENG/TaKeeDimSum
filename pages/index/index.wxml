@@ -1,4 +1,3 @@
-<!--index.wxml-->
 <view class="bg">
   <image
     class="image"
@@ -12,13 +11,15 @@
     <view class="info">
 
       <image
-        class="info_img"
+        class="logo"
         src="../../images/shop/Ta.jpg"
         mode="aspectFill"
+        bindtap="tapLogo"
+        animation="{{animationLogo}}"
       />
-      <text class="slogan">百年傳承 匠心打造</text>
-      <text class="slogan">德心經營 始記初心</text>
-      <view class="go">
+      <text class="slogan" animation="{{animationSlogan}}">百年傳承 匠心打造</text>
+      <text class="slogan sloganB" animation="{{animationSloganB}}">德心經營 始記初心</text>
+      <view class="go" bindtap="tapGoBtn" animation="{{animationGo}}">
         <image
           class="go_img"
           src="../../images/index/go.png"
@@ -29,8 +30,8 @@
       </view>
     </view>
     <view class="title">
-      <text class="takee">德記</text>
-      <text class="dimSum">大安點心</text>
+      <text class="takee" animation="{{animationTakee}}">德記</text>
+      <text class="dimSum" animation="{{animationDimSum}}">大安點心</text>
     </view>
   </view>
 </view>
