@@ -1,4 +1,7 @@
-<view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
+<import src="/template/error/error.wxml" />
+<template is="error" wx:if="{{isLoadError}}" data="{{errorReload}}" />
+
+<view class="skeleton" catchtouchmove="true" wx:if="{{isLoading}}">
   <view class="post">
     <view class="post_item" wx:for="{{skeletonData}}" wx:key="skeletonData_{{index}}">
       <view class="info">

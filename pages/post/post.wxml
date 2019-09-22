@@ -1,4 +1,7 @@
-<view class="skeleton" catchtouchmove="ture" wx:if="{{isLoading}}">
+<import src="/template/error/error.wxml" />
+<template is="error" wx:if="{{isLoadError}}" data="{{errorReload}}" />
+
+<view class="skeleton" catchtouchmove="true" wx:if="{{isLoading}}">
   <view wx:for="{{skeletonData}}" wx:for-item="colItem" wx:key="skeleton_{{index}}" class="{{colItem.type}}">
     <view class="{{colItem.type === 'img' || colItem.type === 'video' ? 'skeleton_image' : 'skeleton_txt'}}" wx:for="{{colItem.child}}"></view>
   </view>

@@ -1,3 +1,5 @@
+@import '/template/error/error.wxss';
+
 
 page {
   background: #ededed;

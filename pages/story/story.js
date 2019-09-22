@@ -5,34 +5,46 @@ Page({
     skeletonData: new Array(2),
     list: [],
     isLoading: true,
+    isLoadError: false
   },
 
   onLoad: function () {
-    this.isFetchError = false;
     this.getListData();
-  },
-
-  onShow: function () {
-    if (this.isFetchError) {
-      this.isFetchError = false;
-      this.getListData();
-    }
   },
 
   setListData: function (res) {
     this.setData({
       list: res.data,
       isLoading: false,
+      isLoadError: false
     })
   },
 
   fetchError: function () {
-    this.isFetchError = true;
+    this.setData({
+      isLoadError: true,
+      isLoading: false,
+    });
+  },
+
+  errorReload: function () {
+    const app = getApp();
+    console.log(app.globalData.isConnected)
+    if (!app.globalData.isConnected) return;
+
+    this.setData({
+      isLoading: true,
+      isLoadError: false
+    });
+    this.getListData();
   },
 
   getListData: function () {
     const APIs = app.globalData.APIs['articleList'] || '';
-    if (!APIs) return;
+    if (!APIs) {
+      this.fetchError();
+      return;
+    };
 
     app.wxRequire({
       url: APIs

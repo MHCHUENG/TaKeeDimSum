@@ -1,22 +1,23 @@
 App({
   onLaunch: function () {
     this.getAPIsMap();
+    wx.onNetworkStatusChange(function(res) {
+      this.globalData.isConnected = res.isConnected
+    }.bind(this));
   },
 
   getAPIsMap: function () {
-    const _this = this;
     wx.request({
       url: 'https://demo.missoy.me/TaKeeDimSum/json/api.json',
       success: function (res) {
-        _this.globalData = {
-          APIs: res.data
-        };
-      }
+        this.globalData.APIs = res.data;
+      }.bind(this)
     });
   },
 
   globalData: {
-    APIs: []
+    APIs: [],
+    isConnected: true
   },
 
   wxRequire: function (opt, success, fail) {

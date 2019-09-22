@@ -6,39 +6,53 @@ Page({
     skeletonData: skeletonsConfig.post,
     post: [],
     isLoading: true,
+    isLoadError: false,
   },
 
   onLoad: function (query) {
     const { id } = query || {}
-    this.isFetchError = false;
     this.id = id;
     this.getPostData(id);
   },
 
-  onShow: function (query) {
-    if (this.isFetchError) {
-      this.isFetchError = false;
-      this.getPostData();
-    }
+  errorReload: function () {
+    const app = getApp();
+    if (!app.globalData.isConnected) return;
+
+    this.setData({
+      isLoading: true,
+      isLoadError: false
+    });
+    this.getPostData();
   },
 
   getDataPostSuccess: function (res) {
     this.setData({
       post: res.data,
-      isLoading: false
+      isLoading: false,
+      isLoadError: false,
     })
   },
 
   getPostDataError: function () {
-    this.isFetchError = true;
+    this.setData({
+      isLoadError: true,
+      isLoading: false,
+    });
   },
 
   getPostData: function (id) {
     id = id || this.id;
-    if (!id) return;
+    if (!id) {
+      this.getPostDataError();
+      return;
+    };
 
     const postAPI = app.globalData.APIs[id];
-    if (!postAPI) return;
+    if (!postAPI) {
+      this.getPostDataError();
+      return;
+    };
 
     app.wxRequire({
       url: postAPI
