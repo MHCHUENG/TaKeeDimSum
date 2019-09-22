@@ -29,7 +29,6 @@ Page({
 
   errorReload: function () {
     const app = getApp();
-    console.log(app.globalData.isConnected)
     if (!app.globalData.isConnected) return;
 
     this.setData({
