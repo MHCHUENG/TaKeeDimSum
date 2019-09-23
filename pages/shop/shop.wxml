@@ -3,16 +3,16 @@
   <view class="banner">
     <image
       class="focus_info_img"
-      src="/images/shop/food.jpg"
-      mode="aspectFill"
+      src="/images/shop/banner.jpg"
+      mode="widthFix"
     />
   </view>
   <view class="focus_info">
-    <!-- <image
+    <image
       class="avatar"
-      src="/images/shop/Ta.jpg"
-    /> -->
-    <!-- <text class="slogan">百年傳承，堅守初心，匠心打造</text> -->
+      src="/images/index/logo.jpg"
+    />
+    <!-- <text class="slogan">德記大安點心</text> -->
   </view>
 </view>
 

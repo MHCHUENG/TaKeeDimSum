@@ -12,7 +12,7 @@
 
       <image
         class="logo"
-        src="../../images/shop/Ta.jpg"
+        src="../../images/index/logo.jpg"
         mode="aspectFill"
         bindtap="tapLogo"
         animation="{{animationLogo}}"
