@@ -91,7 +91,7 @@ Page({
         animationSlogan: animationStepB,
         animationSloganB: animationStepB
       })
-    }.bind(this), 800);
+    }.bind(this), 1000);
 
     this.animationStepCTimer = setTimeout(function() {
       this.animation.opacity(1).step();
@@ -99,7 +99,7 @@ Page({
       this.setData({
         animationGo: animationStepC
       })
-    }.bind(this), 1800);
+    }.bind(this), 2000);
   },
 
   tapGoBtn: function() {
