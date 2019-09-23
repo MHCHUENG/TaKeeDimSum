@@ -1,4 +1,3 @@
-const shopImageApi = 'https://demo.missoy.me/TaKeeDimSum/shop';
 
 Page({
   data: {
@@ -25,17 +24,39 @@ Page({
         phoneNumeber: '',
       }
     ],
-    shopImage: [
-      {
-        src: `${shopImageApi}/shop_1.jpeg`,
-      },
-      {
-        src: `${shopImageApi}/shop_2.jpeg`,
-      },
-      {
-        src: `${shopImageApi}/shop_3.jpeg`,
-      },
-    ]
+    shopImage: []
+  },
+
+  onLoad: function () {
+    this.isFirstLoadingImage = true;
+    this.getShopImageData();
+  },
+
+  onShow: function () {
+    if (this.data.shopImage.length === 0 && !this.isFirstLoadingImage) {
+      this.getShopImageData();
+    }
+  },
+
+  getShopImageData: function () {
+    const app = getApp();
+    const APIs = app.globalData.APIs['shop'];
+    if (!APIs) return;
+
+    app.wxRequire({
+      url: APIs
+    }, this.setShopImageData, this.setShopImageDataError);
+  },
+
+  setShopImageData: function (res) {
+    this.isFirstLoadingImage = false
+    this.setData({
+      shopImage: res.data.shopImage
+    });
+  },
+
+  setShopImageDataError: function () {
+    this.isFirstLoadingImage = false;
   },
 
   makePhoneCall: function (e) {
@@ -74,7 +95,12 @@ Page({
     let srcArr = []
 
     shopImage.forEach((item) => {
-      srcArr.push(item.src)
+      const { srcs } = item || {}
+      if (!srcs) return;
+
+      srcs.forEach((item) => {
+        srcArr.push(item.src)
+      });
     })
 
     this.setPreviewImage(src, srcArr)

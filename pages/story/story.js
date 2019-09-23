@@ -1,5 +1,3 @@
-const app = getApp();
-
 Page({
   data: {
     skeletonData: new Array(2),
@@ -21,29 +19,34 @@ Page({
   },
 
   fetchError: function () {
-    this.setData({
-      isLoadError: true,
-      isLoading: false,
-    });
+    clearTimeout(this.getListDataErrorTimer);
+    this.getListDataErrorTimer = setTimeout(() => {
+      this.setData({
+        isLoadError: true,
+        isLoading: false,
+      });
+    }, 2000);
   },
 
   errorReload: function () {
     const app = getApp();
     if (!app.globalData.isConnected) return;
 
-    this.setData({
-      isLoading: true,
-      isLoadError: false
-    });
     this.getListData();
   },
 
   getListData: function () {
-    const APIs = app.globalData.APIs['articleList'] || '';
+    const app = getApp();
+    const APIs = app.globalData.APIs['articleList'];
     if (!APIs) {
       this.fetchError();
       return;
     };
+
+    this.setData({
+      isLoading: true,
+      isLoadError: false
+    });
 
     app.wxRequire({
       url: APIs

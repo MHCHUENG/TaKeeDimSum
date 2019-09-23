@@ -1,5 +1,6 @@
 App({
   onLaunch: function () {
+    this.getAPIsMapTimes = 0;
     this.getAPIsMap();
     wx.onNetworkStatusChange(function(res) {
       this.globalData.isConnected = res.isConnected
@@ -11,6 +12,11 @@ App({
       url: 'https://demo.missoy.me/TaKeeDimSum/json/api.json',
       success: function (res) {
         this.globalData.APIs = res.data;
+      }.bind(this),
+      fail: function () {
+        if (typeof this.getAPIsMapTimes !== 'number' || this.getAPIsMapTimes > 3) return;
+        this.getAPIsMapTimes++;
+        this.getAPIsMap();
       }.bind(this)
     });
   },

@@ -1,5 +1,4 @@
 const skeletonsConfig = require('../../config/skeletons.js');
-const app = getApp();
 
 Page({
   data: {
@@ -19,10 +18,6 @@ Page({
     const app = getApp();
     if (!app.globalData.isConnected) return;
 
-    this.setData({
-      isLoading: true,
-      isLoadError: false
-    });
     this.getPostData();
   },
 
@@ -35,10 +30,13 @@ Page({
   },
 
   getPostDataError: function () {
-    this.setData({
-      isLoadError: true,
-      isLoading: false,
-    });
+    clearTimeout(this.getPostDataErrorTimer);
+    this.getPostDataErrorTimer = setTimeout(() => {
+      this.setData({
+        isLoadError: true,
+        isLoading: false,
+      });
+    }, 2000);
   },
 
   getPostData: function (id) {
@@ -48,11 +46,17 @@ Page({
       return;
     };
 
+    const app = getApp();
     const postAPI = app.globalData.APIs[id];
     if (!postAPI) {
       this.getPostDataError();
       return;
     };
+    
+    this.setData({
+      isLoading: true,
+      isLoadError: false
+    });
 
     app.wxRequire({
       url: postAPI
