@@ -9,6 +9,10 @@
 			{
 				"type": "folder",
 				"value": "jsons"
+			},
+			{
+				"type": "file",
+				"value": "README.md"
 			}
 		]
 	},
