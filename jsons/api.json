@@ -1,5 +1,6 @@
 {
   "dimSumByPinNan": "https://demo.missoy.me/TaKeeDimSum/json/dim-sum-pinnan.json",
+  "dimSumByGuZheng": "https://demo.missoy.me/TaKeeDimSum/json/dim-sum-guzheng.json",
   "childDimSum": "https://demo.missoy.me/TaKeeDimSum/json/dim-sum-child.json",
   "articleList": "https://demo.missoy.me/TaKeeDimSum/json/article-list.json",
   "shop": "https://demo.missoy.me/TaKeeDimSum/json/shop.json"

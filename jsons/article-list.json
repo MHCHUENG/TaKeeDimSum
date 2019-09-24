@@ -1,7 +1,7 @@
 [
   {
     "title": "大安点心",
-    "author": "平南印象",
+    "author": "小颖 - 平南印象",
     "id": "dimSumByPinNan",
     "banner": {
       "src": "https://demo.missoy.me/TaKeeDimSum/post/dim-sum-pinnan/banner.jpg",
@@ -18,5 +18,15 @@
       "mode": "aspectFill"
     },
     "lead": "记得小时候的大安点心係流动的，老板会推着一部小摊车，载上四五笼艰辛的劳动成果，在大安大街小街上，好像记得当时老板仲会喊：“卖点心~~~~”之后就会有好多小孩大人，闻声而至，蜂捅而上。"
+  },
+  {
+    "title": "大安味 | 记忆中的老味道，用味觉读取古镇的发展历史  [节选]",
+    "author": "传承与发展 - 大乌古镇",
+    "id": "dimSumByGuZheng",
+    "banner": {
+      "src": "https://demo.missoy.me/TaKeeDimSum/post/dim-sum-guzheng/img1.jpeg",
+      "mode": "aspectFill"
+    },
+    "lead": "长河远，万重山。多年前，广东人迁移至大安，在大安扎根、开枝散叶，并将地道的粤菜带到了大安，随后，这种丰富的味道锐不可挡地占据着古镇居民的餐桌，恒久地缠绕着古镇居民的味蕾。这是他们独一无二的“乡味”..."
   }
 ]

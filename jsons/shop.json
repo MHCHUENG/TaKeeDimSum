@@ -16,13 +16,13 @@
     {
       "srcs": [
         {
+          "src": "https://demo.missoy.me/TaKeeDimSum/shop/shop_6.jpeg"
+        },
+        {
           "src": "https://demo.missoy.me/TaKeeDimSum/shop/shop_4.jpg"
         },
         {
           "src": "https://demo.missoy.me/TaKeeDimSum/shop/shop_5.jpg"
-        },
-        {
-          
         }
       ]
     }
