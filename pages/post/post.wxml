@@ -21,6 +21,7 @@
       data-src="{{item.src}}"
       mode="{{item.mode || 'widthFix'}}"
       bindtap="tapImage"
+      lazy-load
     ></image>  
   </block>
 </view>

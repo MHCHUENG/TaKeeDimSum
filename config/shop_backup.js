@@ -16,7 +16,7 @@ const shop = {
     },
     {
       "type": "openTime",
-      "title": "营业时间：08:00 - 16:30",
+      "title": "营业时间：08:00 - 16:00",
       "iconSrc": "/images/shop/clock.png",
       "bindName": "",
       "phoneNumeber": ""
