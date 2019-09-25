@@ -18,6 +18,17 @@ Page({
     });
   },
 
+  onUnload: function () {
+    this.setData({
+      animationLogo: {},
+      animationTakee: {},
+      animationDimSum: {},
+      animationSlogan: {},
+      animationSloganB: {},
+      animationGo: {}
+    })
+  },
+
   onShow: function() {
     this.createGroupAnimation();
   },

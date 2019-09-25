@@ -18,6 +18,12 @@ Page({
     });
   },
 
+  onUnload: function () {
+    this.setData({
+      post: []
+    })
+  },
+
   errorReload: function () {
     const app = getApp();
     if (!app.globalData.isConnected) return;

@@ -22,19 +22,16 @@ Page({
     }
   },
 
+  onUnload: function () {
+    this.setData({
+      shopImage: []
+    })
+  },
+
   getData: function () {
 
     const app = getApp();
     const APIs = app.globalData.APIs;
-
-    // 如果无网，兜底info信息
-    // if (!app.globalData.isConnected) {
-    //   this.setData({
-    //     info: backData.info
-    //   });
-    //   this.fetchError();
-    //   return;
-    // }
 
     if (APIs) {
       this.getShopImageData(APIs['shop']);

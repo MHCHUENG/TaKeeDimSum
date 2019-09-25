@@ -14,6 +14,12 @@ Page({
     });
   },
 
+  onUnload: function () {
+    this.setData({
+      list: []
+    })
+  },
+
   setListData: function (res) {
     this.setData({
       list: res.data,
