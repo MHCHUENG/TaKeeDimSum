@@ -12,6 +12,12 @@ Page({
     animationGo: {}
   },
 
+  onLoad: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    });
+  },
+
   onShow: function() {
     this.createGroupAnimation();
   },

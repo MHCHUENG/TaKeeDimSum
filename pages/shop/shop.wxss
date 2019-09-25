@@ -1,5 +1,6 @@
 page {
   background: #ededed;
+  padding-bottom: 30rpx;
 }
 
 .focus {
@@ -49,7 +50,7 @@ page {
 }
 
 .info {
-  margin: 40rpx 0 0;
+  margin: 30rpx 0 0;
   background: #ffffff;
 }
 
@@ -87,7 +88,7 @@ page {
 
 .shop_image {
   min-height: 300rpx;
-  margin: 40rpx 0 0;
+  margin: 30rpx 0 0;
   padding: 0 0 40rpx;
   background: #ffffff;
 }

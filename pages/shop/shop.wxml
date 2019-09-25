@@ -16,7 +16,7 @@
   </view>
 </view>
 
-<view class="info">
+<view class="info" wx:if="{{info.length > 0}}">
   <view class="info_item"
     wx:for="{{info}}"
     wx:key="shopInfo_{{index}}"
@@ -29,7 +29,7 @@
       mode="aspectFit"
     />
     <text class="desc">{{item.title}}</text>
-    <view class="arrow"></view>
+    <view class="arrow" wx:if="{{item.bindName}}"></view>
   </view>
 </view>
 

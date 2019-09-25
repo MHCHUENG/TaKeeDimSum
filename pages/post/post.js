@@ -11,17 +11,21 @@ Page({
   onLoad: function (query) {
     const { id } = query || {}
     this.id = id;
-    this.getPostData(id);
+    this.getData(id);
+
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   errorReload: function () {
     const app = getApp();
     if (!app.globalData.isConnected) return;
 
-    this.getPostData();
+    this.getData();
   },
 
-  getDataPostSuccess: function (res) {
+  setPostData: function (res) {
     this.setData({
       post: res.data,
       isLoading: false,
@@ -29,7 +33,7 @@ Page({
     })
   },
 
-  getPostDataError: function () {
+  fetchError: function () {
     clearTimeout(this.getPostDataErrorTimer);
     this.getPostDataErrorTimer = setTimeout(() => {
       this.setData({
@@ -39,28 +43,49 @@ Page({
     }, 2000);
   },
 
-  getPostData: function (id) {
-    id = id || this.id;
-    if (!id) {
-      this.getPostDataError();
+  getPostData: function(url) {
+    if (!url) {
+      this.fetchError();
       return;
-    };
+    }
 
-    const app = getApp();
-    const postAPI = app.globalData.APIs[id];
-    if (!postAPI) {
-      this.getPostDataError();
-      return;
-    };
-    
     this.setData({
       isLoading: true,
       isLoadError: false
     });
 
+    const app = getApp();
     app.wxRequire({
-      url: postAPI
-    }, this.getDataPostSuccess, this.getPostDataError);
+      url
+    }, this.setPostData, this.fetchError);
+  },
+
+  getData: function (id) {
+    id = id || this.id;
+    if (!id) {
+      this.fetchError();
+      return;
+    };
+
+    const app = getApp();
+    const APIs = app.globalData.APIs;
+
+    if (APIs) {
+      this.getPostData(APIs[id]);
+      return;
+    }
+
+    app.getAPIsMap().then((res) => {
+      if (!res || !res.data) {
+        this.fetchError();
+        return;
+      }
+
+      app.globalData.APIs = res.data;
+      this.getPostData(res.data[id]);
+    }).catch(() => {
+      this.fetchError()
+    });
   },
 
   setPreviewImage: function (current, urls) {

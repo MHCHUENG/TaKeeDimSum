@@ -7,7 +7,11 @@ Page({
   },
 
   onLoad: function () {
-    this.getListData();
+    this.getData();
+
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   setListData: function (res) {
@@ -32,24 +36,45 @@ Page({
     const app = getApp();
     if (!app.globalData.isConnected) return;
 
-    this.getListData();
+    this.getData();
   },
 
-  getListData: function () {
-    const app = getApp();
-    const APIs = app.globalData.APIs['articleList'];
-    if (!APIs) {
+  getListData: function (url) {
+    if (!url) {
       this.fetchError();
       return;
-    };
+    }
 
     this.setData({
       isLoading: true,
       isLoadError: false
     });
 
+    const app = getApp();
     app.wxRequire({
-      url: APIs
+      url
     }, this.setListData, this.fetchError);
+  },
+
+  getData: function () {
+    const app = getApp();
+    const APIs = app.globalData.APIs
+
+    if (APIs) {
+      this.getListData(APIs['articleList']);
+      return;
+    }
+
+    app.getAPIsMap().then((res) => {
+      if (!res || !res.data) {
+        this.fetchError();
+        return;
+      }
+
+      app.globalData.APIs = res.data;
+      this.getListData(res.data['articleList']);
+    }).catch(() => {
+      this.fetchError()
+    });
   }
 })

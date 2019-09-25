@@ -1,61 +1,79 @@
 
+const backData = require('../../config/shop_backup');
+
 Page({
   data: {
-    info: [
-      {
-        type: 'contact',
-        title: '餐厅电话：135-5835-3489',
-        phoneNumeber: '13558353489',
-        iconSrc: '/images/shop/call.png',
-        bindName: 'makePhoneCall'
-      },
-      {
-        type: 'address',
-        title: '地址：平南县大安镇镇新南路(吉祥窗帘)',
-        iconSrc: '/images/shop/location.png',
-        bindName: 'checkLocation',
-        phoneNumeber: '',
-      },
-      {
-        type: 'openTime',
-        title: '营业时间：08:00 - 16:30',
-        iconSrc: '/images/shop/clock.png',
-        bindName: '',
-        phoneNumeber: '',
-      }
-    ],
+    info: backData.info,
     shopImage: []
   },
 
   onLoad: function () {
     this.isFirstLoadingImage = true;
-    this.getShopImageData();
+    this.getData();
+
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   onShow: function () {
     if (this.data.shopImage.length === 0 && !this.isFirstLoadingImage) {
-      this.getShopImageData();
+      this.getData();
     }
   },
 
-  getShopImageData: function () {
+  getData: function () {
     const app = getApp();
-    const APIs = app.globalData.APIs['shop'];
-    if (!APIs) return;
+    const APIs = app.globalData.APIs;
 
-    app.wxRequire({
-      url: APIs
-    }, this.setShopImageData, this.setShopImageDataError);
-  },
+    // 如果无网，兜底info信息
+    // if (!app.globalData.isConnected) {
+    //   this.setData({
+    //     info: backData.info
+    //   });
+    //   this.fetchError();
+    //   return;
+    // }
 
-  setShopImageData: function (res) {
-    this.isFirstLoadingImage = false
-    this.setData({
-      shopImage: res.data.shopImage
+    if (APIs) {
+      this.getShopImageData(APIs['shop']);
+      return;
+    }
+
+    app.getAPIsMap().then((res) => {
+      this.isFirstLoadingImage = false;
+      if (!res || !res.data) {
+        return;
+      }
+
+      app.globalData.APIs = res.data;
+      this.getShopImageData(res.data['shop']);
+    }).catch(() => {
+      this.fetchError();
     });
   },
 
-  setShopImageDataError: function () {
+  getShopImageData: function (url) {
+    if (!url) {
+      this.fetchError();
+      return;
+    }
+
+    const app = getApp();
+    app.wxRequire({
+      url
+    }, this.setShopImageData, this.fetchError);
+  },
+
+  setShopImageData: function (res) {
+    this.isFirstLoadingImage = false;
+    this.setData({
+      shopImage: res.data.shopImage,
+      // info: res.data.info
+    });
+  },
+
+  fetchError: function () {
     this.isFirstLoadingImage = false;
   },
 
