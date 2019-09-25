@@ -61,6 +61,8 @@ Page({
   },
 
   getData: function (id) {
+    if (this.data.post.length > 0) return;
+
     id = id || this.id;
     if (!id) {
       this.fetchError();

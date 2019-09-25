@@ -23,6 +23,8 @@ Page({
   },
 
   getData: function () {
+    if (this.data.shopImage.length > 0) return;
+
     const app = getApp();
     const APIs = app.globalData.APIs;
 
