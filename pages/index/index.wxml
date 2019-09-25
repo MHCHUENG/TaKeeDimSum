@@ -6,7 +6,7 @@
   />
 </view>
 
-<view class="focus">
+<view class="focus{{isAct ? ' amimationAct' : ''}}{{stopAct ? ' amimationStop' : ''}}">
   <view class="main">
     <view class="info">
 
@@ -15,11 +15,10 @@
         src="../../images/index/logo.jpg"
         mode="aspectFill"
         bindtap="tapLogo"
-        animation="{{animationLogo}}"
       />
-      <text class="slogan" animation="{{animationSlogan}}">百年傳承 匠心打造</text>
-      <text class="slogan sloganB" animation="{{animationSloganB}}">德心經營 始記初心</text>
-      <view class="go" bindtap="tapGoBtn" animation="{{animationGo}}">
+      <text class="slogan">百年傳承 匠心打造</text>
+      <text class="slogan sloganB">德心經營 始記初心</text>
+      <view class="go" bindtap="tapGoBtn">
         <image
           class="go_img"
           src="../../images/index/go.png"
@@ -30,8 +29,8 @@
       </view>
     </view>
     <view class="title">
-      <text class="takee" animation="{{animationTakee}}">德記</text>
-      <text class="dimSum" animation="{{animationDimSum}}">大安點心</text>
+      <text class="takee">德記</text>
+      <text class="dimSum">大安點心</text>
     </view>
   </view>
 </view>

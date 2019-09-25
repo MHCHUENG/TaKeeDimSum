@@ -57,6 +57,7 @@
   font-weight: 300;
   transform: translateY(-150rpx);
   opacity: 0;
+  transition: all 1s ease;
 }
 
 .dimSum {
@@ -71,6 +72,7 @@
   background: #ff0000;
   opacity: 0;
   transform: translateY(-300rpx);
+  transition: all 1s ease;
 }
 
 .info {
@@ -89,6 +91,7 @@
   box-shadow: 0 0 10rpx rgba(0, 0, 0, .3);
   transform: translateX(-200rpx);
   opacity: 0;
+  transition: all 1s ease;
 }
 
 .slogan {
@@ -100,6 +103,7 @@
   transform: translateY(100rpx);
   opacity: 0;
   font-weight: 300;
+  transition: all 1s 1s ease;
 }
 
 .sloganB {
@@ -115,6 +119,7 @@
   width: 440rpx;
   height: 480rpx;
   opacity: 0;
+  transition: all 1s 2s ease;
 }
 
 .go_img {
@@ -134,4 +139,36 @@
   margin: 10rpx 0 0;
   font-size: 40rpx;
   line-height: 1.2;
+}
+
+.amimationAct .logo {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.amimationAct .takee {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.amimationAct .dimSum {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.amimationAct .slogan {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.amimationAct .go {
+  opacity: 1;
+}
+
+.amimationStop .logo,
+.amimationStop .takee,
+.amimationStop .dimSum,
+.amimationStop .slogan,
+.amimationStop .go {
+  transition: none;
 }
