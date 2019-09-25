@@ -28,7 +28,7 @@ page {
 
 .focus_info_img {
   width: 100%;
-  height: auto;
+  height: calc(100vw * 5 / 9);
 }
 
 .avatar {

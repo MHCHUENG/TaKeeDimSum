@@ -4,6 +4,12 @@ Page({
     stopAct: false
   },
 
+  onShareAppMessage: function() {
+    return {
+      title: "百年傳承，匠心打造，德心經營，始記初心"
+    }
+  },
+
   onLoad: function () {
     wx.showShareMenu({
       withShareTicket: true
