@@ -1,6 +1,8 @@
 Page({
   data: {
     isAct: false,
+    isAct2: false,
+    isAct3: false,
     stopAct: false
   },
 
@@ -28,11 +30,25 @@ Page({
     },100);
   },
 
+  transitionendAct1: function () {
+    this.setData({
+      isAct2: true
+    });
+  },
+
+  transitionendAct2: function () {
+    this.setData({
+      isAct3: true
+    });
+  },
+
   onHide: function () {
     clearTimeout(this.timer);
     this.setData({
       stopAct: true,
-      isAct: true
+      isAct: true,
+      isAct2: true,
+      isAct3: true,
     });
   },
 

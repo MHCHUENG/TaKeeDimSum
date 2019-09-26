@@ -6,7 +6,7 @@
   />
 </view>
 
-<view class="focus{{isAct ? ' amimationAct' : ''}}{{stopAct ? ' amimationStop' : ''}}">
+<view class="focus{{isAct ? ' amimationAct' : ''}}{{isAct2 ? ' amimationAct2' : ''}}{{isAct3 ? ' amimationAct3' : ''}}{{stopAct ? ' amimationStop' : ''}}">
   <view class="main">
     <view class="info">
 
@@ -15,9 +15,10 @@
         src="../../images/index/logo.jpg"
         mode="aspectFill"
         bindtap="tapLogo"
+        bindtransitionend="transitionendAct1"
       />
       <text class="slogan">百年傳承 匠心打造</text>
-      <text class="slogan sloganB">德心經營 始記初心</text>
+      <text class="slogan sloganB" bindtransitionend="transitionendAct2">德心經營 始記初心</text>
       <view class="go" bindtap="tapGoBtn">
         <image
           class="go_img"

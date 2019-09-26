@@ -103,7 +103,7 @@
   transform: translateY(100rpx);
   opacity: 0;
   font-weight: 300;
-  transition: all 1s 1s ease;
+  transition: all 1s ease;
 }
 
 .sloganB {
@@ -119,7 +119,7 @@
   width: 440rpx;
   height: 480rpx;
   opacity: 0;
-  transition: all 1s 2s ease;
+  transition: all 1s ease;
 }
 
 .go_img {
@@ -156,12 +156,12 @@
   transform: translateY(0);
 }
 
-.amimationAct .slogan {
+.amimationAct2 .slogan {
   opacity: 1;
   transform: translateY(0);
 }
 
-.amimationAct .go {
+.amimationAct3 .go {
   opacity: 1;
 }
 
