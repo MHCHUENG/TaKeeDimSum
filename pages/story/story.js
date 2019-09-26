@@ -27,8 +27,15 @@ Page({
   },
 
   setListData: function (res) {
+    let nextList = [];
+    res.data.forEach((item) => {
+      const { isHide } = item || {};
+      if (isHide) return;
+      nextList.push(item);
+    });
+
     this.setData({
-      list: res.data,
+      list: nextList,
       isLoading: false,
       isLoadError: false
     })
