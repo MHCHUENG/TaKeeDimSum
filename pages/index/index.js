@@ -44,6 +44,8 @@ Page({
 
   onHide: function () {
     clearTimeout(this.timer);
+    if (this.data.isAct && this.data.isAct2 && this.data.isAc3) return;
+
     this.setData({
       stopAct: true,
       isAct: true,
