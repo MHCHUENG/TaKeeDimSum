@@ -18,6 +18,16 @@ Page({
     });
   },
 
+  onUnload: function () {
+    clearTimeout(this.timer);
+    this.setData({
+      isAct: false,
+      isAct2: false,
+      isAct3: false,
+      stopAct: true,
+    })
+  },
+
   onShow: function() {
     if (this.timer || this.data.stopAct) {
       return;
