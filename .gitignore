@@ -8,3 +8,4 @@ dist/
 .include.json
 *.zip
 csslint_error.html
+jsons/
