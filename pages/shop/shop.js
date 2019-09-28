@@ -15,19 +15,20 @@ Page({
     }
   },
 
+  onPullDownRefresh: function () {
+    if (this.data.shopImage.length > 0) {
+      wx.stopPullDownRefresh();
+      return;
+    };
+    this.getData(); 
+  },
+
   onLoad: function () {
-    this.isFirstLoadingImage = true;
     this.getData();
 
     wx.showShareMenu({
       withShareTicket: true
     });
-  },
-
-  onShow: function () {
-    if (this.data.shopImage.length === 0 && !this.isFirstLoadingImage) {
-      this.getData();
-    }
   },
 
   onUnload: function () {
@@ -45,6 +46,7 @@ Page({
 
     const db = wx.cloud.database();
     db.collection('shopImage').limit(10).get().then((res) => {
+      wx.stopPullDownRefresh();
       this.setShopImageData(res.data)
     }).catch(() => {
       this.fetchError();
@@ -52,14 +54,13 @@ Page({
   },
 
   setShopImageData: function (data) {
-    this.isFirstLoadingImage = false;
     this.setData({
       shopImage: data,
     });
   },
 
   fetchError: function () {
-    this.isFirstLoadingImage = false;
+    wx.stopPullDownRefresh();
   },
 
   makePhoneCall: function (e) {

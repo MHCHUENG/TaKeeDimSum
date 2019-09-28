@@ -49,9 +49,9 @@ image {
 
 @keyframes skeletonLoading {
   0% {
-    transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-300%, 0, 0);
   }
   100% {
-    transform: translate3d(200%, 0, 0);
+    transform: translate3d(300%, 0, 0);
   } 
 }
