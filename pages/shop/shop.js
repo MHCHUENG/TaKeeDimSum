@@ -3,6 +3,8 @@ const backData = require('../../config/shop_backup');
 
 Page({
   data: {
+    shopImageColSkt: new Array(2),
+    shopImageSkt: new Array(3),
     info: backData.info,
     shopImage: []
   },

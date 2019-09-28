@@ -33,6 +33,19 @@
   </view>
 </view>
 
+<view class="shop_image shop_image_skeleton" wx:if="{{shopImage.length === 0}}">
+  <view class="shop_title">
+    <view class="skeleton_txt"></view>
+  </view>
+  <view class="image_box">
+    <view class="image_box_row" wx:for="{{shopImageColSkt}}">
+      <view class="shop_img" wx:for="{{shopImageSkt}}">
+        <view class="skeleton_image"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
 <view class="shop_image" wx:if="{{shopImage.length > 0}}">
   <text class="shop_title">德記照片</text>
   <view class="image_box">

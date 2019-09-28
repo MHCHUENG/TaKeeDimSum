@@ -129,3 +129,17 @@ page {
 .shop_img:nth-child(1) {
   margin: 0;
 }
+
+.shop_image_skeleton .skeleton_txt {
+  height: 40rpx;
+  width: 10em;
+}
+
+.shop_image_skeleton .shop_img {
+  height: calc((100vw - 80rpx) / 3);
+}
+
+.shop_image_skeleton .skeleton_image {
+  min-height: 0;
+  height: 100%;
+}
