@@ -1,6 +1,6 @@
 Page({
   data: {
-    skeletonData: new Array(2),
+    skeletonData: new Array(3),
     list: [],
     isLoading: true,
     isLoadError: false
@@ -26,6 +26,17 @@ Page({
     })
   },
 
+  fetchError: function () {
+    this.setData({
+      isLoadError: true,
+      isLoading: false,
+    });
+  },
+
+  errorReload: function () {
+    this.getData();
+  },
+
   setListData: function (res) {
     let nextList = [];
     res.data.forEach((item) => {
@@ -41,25 +52,9 @@ Page({
     })
   },
 
-  fetchError: function () {
-    clearTimeout(this.getListDataErrorTimer);
-    this.getListDataErrorTimer = setTimeout(() => {
-      this.setData({
-        isLoadError: true,
-        isLoading: false,
-      });
-    }, 2000);
-  },
-
-  errorReload: function () {
+  getData: function () {
     const app = getApp();
-    if (!app.globalData.isConnected) return;
-
-    this.getData();
-  },
-
-  getListData: function (url) {
-    if (!url) {
+    if (!app.isConnected) {
       this.fetchError();
       return;
     }
@@ -69,31 +64,11 @@ Page({
       isLoadError: false
     });
 
-    const app = getApp();
-    app.wxRequire({
-      url
-    }, this.setListData, this.fetchError);
-  },
-
-  getData: function () {
-    const app = getApp();
-    const APIs = app.globalData.APIs
-
-    if (APIs) {
-      this.getListData(APIs['articleList']);
-      return;
-    }
-
-    app.getAPIsMap().then((res) => {
-      if (!res || !res.data) {
-        this.fetchError();
-        return;
-      }
-
-      app.globalData.APIs = res.data;
-      this.getListData(res.data['articleList']);
+    const db = wx.cloud.database();
+    db.collection('story').limit(10).get().then((res) => {
+      this.setListData(res)
     }).catch(() => {
-      this.fetchError()
+      this.fetchError();
     });
   }
 })

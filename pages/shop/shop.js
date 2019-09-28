@@ -35,45 +35,24 @@ Page({
   },
 
   getData: function () {
-
     const app = getApp();
-    const APIs = app.globalData.APIs;
-
-    if (APIs) {
-      this.getShopImageData(APIs['shop']);
+    if (!app.isConnected) {
+      this.fetchError();
       return;
     }
 
-    app.getAPIsMap().then((res) => {
-      this.isFirstLoadingImage = false;
-      if (!res || !res.data) {
-        return;
-      }
-
-      app.globalData.APIs = res.data;
-      this.getShopImageData(res.data['shop']);
+    const db = wx.cloud.database();
+    db.collection('shopImage').limit(10).get().then((res) => {
+      this.setShopImageData(res.data)
     }).catch(() => {
       this.fetchError();
     });
   },
 
-  getShopImageData: function (url) {
-    if (!url) {
-      this.fetchError();
-      return;
-    }
-
-    const app = getApp();
-    app.wxRequire({
-      url
-    }, this.setShopImageData, this.fetchError);
-  },
-
-  setShopImageData: function (res) {
+  setShopImageData: function (data) {
     this.isFirstLoadingImage = false;
     this.setData({
-      shopImage: res.data.shopImage,
-      // info: res.data.info
+      shopImage: data,
     });
   },
 

@@ -1,9 +1,19 @@
 App({
   onLaunch: function () {
+    if (!wx.cloud) {
+      // console.log('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        env: 'dev-cuit8'
+      });
+    }
+
     wx.onNetworkStatusChange(function(res) {
-      this.globalData.isConnected = res.isConnected
+      this.isConnected = res.isConnected
     }.bind(this));
   },
+
+  isConnected: true,
 
   getAPIsMap: function () {
     return new Promise((resolve, reject) => {
@@ -17,11 +27,6 @@ App({
         }
       });
     })
-  },
-
-  globalData: {
-    APIs: null,
-    isConnected: true
   },
 
   wxRequire: function (opt, success, fail) {

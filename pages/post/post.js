@@ -31,9 +31,6 @@ Page({
   },
 
   errorReload: function () {
-    const app = getApp();
-    if (!app.globalData.isConnected) return;
-
     this.getData();
   },
 
@@ -46,57 +43,32 @@ Page({
   },
 
   fetchError: function () {
-    clearTimeout(this.getPostDataErrorTimer);
-    this.getPostDataErrorTimer = setTimeout(() => {
-      this.setData({
-        isLoadError: true,
-        isLoading: false,
-      });
-    }, 2000);
+    this.setData({
+      isLoadError: true,
+      isLoading: false,
+    });
   },
 
-  getPostData: function(url) {
-    if (!url) {
+  getData: function (id) {
+    const app = getApp();
+    id = id || this.id;
+
+    // 无ID或无网提示错误
+    if (!id || !app.isConnected) {
       this.fetchError();
       return;
-    }
+    };
 
     this.setData({
       isLoading: true,
       isLoadError: false
     });
 
-    const app = getApp();
-    app.wxRequire({
-      url
-    }, this.setPostData, this.fetchError);
-  },
-
-  getData: function (id) {
-    id = id || this.id;
-    if (!id) {
-      this.fetchError();
-      return;
-    };
-
-    const app = getApp();
-    const APIs = app.globalData.APIs;
-
-    if (APIs) {
-      this.getPostData(APIs[id]);
-      return;
-    }
-
-    app.getAPIsMap().then((res) => {
-      if (!res || !res.data) {
-        this.fetchError();
-        return;
-      }
-
-      app.globalData.APIs = res.data;
-      this.getPostData(res.data[id]);
+    const db = wx.cloud.database();
+    db.collection('post').doc(id).get().then((res) => {
+      this.setPostData(res.data)
     }).catch(() => {
-      this.fetchError()
+      this.fetchError();
     });
   },
 
