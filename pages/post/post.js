@@ -17,7 +17,7 @@ Page({
   onLoad: function (query) {
     const { id, updateTime } = query || {}
     this.id = id;
-    this.updateTime = +new Date(updateTime);
+    this.updateTime = `${+new Date(updateTime)}`;
 
     // 是否取本地数据
     wx.getStorage({
