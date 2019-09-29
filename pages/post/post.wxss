@@ -14,7 +14,9 @@ text, image, .video {
 
 image, .video {
   width: calc(100vw - 80rpx);
+  height: auto;
   margin-top: 40rpx;
+  background: #F1F2F7;
 }
 
 .title {

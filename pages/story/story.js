@@ -38,15 +38,8 @@ Page({
   },
 
   setListData: function (res) {
-    let nextList = [];
-    res.data.forEach((item) => {
-      const { isHide } = item || {};
-      if (isHide) return;
-      nextList.push(item);
-    });
-
     this.setData({
-      list: nextList,
+      list: res.data,
       isLoading: false,
       isLoadError: false
     })
@@ -65,7 +58,9 @@ Page({
     });
 
     const db = wx.cloud.database();
-    db.collection('story').limit(10).get().then((res) => {
+    db.collection('story').where({
+      isHide: false
+    }).get().then((res) => {
       this.setListData(res)
     }).catch(() => {
       this.fetchError();

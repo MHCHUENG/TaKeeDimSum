@@ -4,7 +4,7 @@ App({
       // console.log('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: 'dev-cuit8'
+        env: 'release-x9bgs'
       });
     }
 
@@ -14,20 +14,6 @@ App({
   },
 
   isConnected: true,
-
-  getAPIsMap: function () {
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: 'https://demo.missoy.me/TaKeeDimSum/json/api.json',
-        success: function (res) {
-          resolve(res);
-        },
-        fail: function () {
-          reject();
-        }
-      });
-    })
-  },
 
   wxRequire: function (opt, success, fail) {
     if (!opt) return [];

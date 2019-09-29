@@ -21,6 +21,7 @@
       data-src="{{item.src}}"
       mode="{{item.mode || 'widthFix'}}"
       bindtap="tapImage"
+      style="height: calc((100vw - 80rpx) * ({{item.height / item.width}}))"
       lazy-load
     ></image>  
   </block>

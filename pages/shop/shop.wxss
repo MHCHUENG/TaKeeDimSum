@@ -132,7 +132,7 @@ page {
 
 .shop_image_skeleton .skeleton_txt {
   height: 40rpx;
-  width: 12em;
+  width: 10em;
 }
 
 .shop_image_skeleton .shop_img {
