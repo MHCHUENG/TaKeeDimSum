@@ -29,7 +29,7 @@
 <view class="post" wx:if="{{!isLoading}}">
   <block wx:for="{{list}}" wx:key="id">
     <view class="post_item">
-      <navigator url="/pages/post/post?id={{item.id}}" hover-class="none">
+      <navigator url="/pages/post/post?id={{item.id}}&updateTime={{item.updateTime}}" hover-class="none">
         <view class="info">
           <text class="title">{{item.title}}</text>
           <view class="desc">

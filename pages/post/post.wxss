@@ -4,15 +4,12 @@
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 
-text, image, .video {
+.text, .img, .video {
   display: block;
-}
-
-text, image, .video {
   margin: 0 40rpx;
 }
 
-image, .video {
+.img, .video {
   width: calc(100vw - 80rpx);
   height: auto;
   margin-top: 40rpx;

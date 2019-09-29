@@ -15,9 +15,25 @@ Page({
   },
 
   onLoad: function (query) {
-    const { id } = query || {}
+    const { id, updateTime } = query || {}
     this.id = id;
-    this.getData(id);
+    this.updateTime = +new Date(updateTime);
+
+    // 是否取本地数据
+    wx.getStorage({
+      key: `post_${id}`,
+      success: function (res) {
+        const { data, updateTime } = res.data
+        if (updateTime === this.updateTime) {
+          this.setPostData(data);
+        } else {
+          this.getData(id);
+        }
+      }.bind(this),
+      fail: function () {
+        this.getData(id);
+      }.bind(this)
+    });
 
     wx.showShareMenu({
       withShareTicket: true
@@ -34,12 +50,24 @@ Page({
     this.getData();
   },
 
-  setPostData: function (res) {
+  setPostData: function (data) {
     this.setData({
-      post: res.data,
+      post: data,
       isLoading: false,
       isLoadError: false,
     })
+  },
+
+  setStorageData (data) {
+    if (this.id) {
+      wx.setStorage({
+        key: `post_${this.id}`,
+        data: {
+          updateTime: this.updateTime,
+          data
+        }
+      });
+    }
   },
 
   fetchError: function () {
@@ -66,7 +94,8 @@ Page({
 
     const db = wx.cloud.database();
     db.collection('post').doc(id).get().then((res) => {
-      this.setPostData(res.data)
+      this.setPostData(res.data.data);
+      this.setStorageData(res.data.data)
     }).catch(() => {
       this.fetchError();
     });
