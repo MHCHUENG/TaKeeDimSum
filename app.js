@@ -4,7 +4,8 @@ App({
       // console.log('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: 'release-x9bgs'
+        // env: 'release-x9bgs',
+        env: 'dev-cuit8'
       });
     }
 
