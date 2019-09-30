@@ -14,17 +14,22 @@ Page({
     }
   },
 
+  // 手动刷新拉取最新的文章
+  onPullDownRefresh: function () {
+    this.getData(); 
+  },
+
   onLoad: function (query) {
     const { id, updateTime } = query || {}
     this.id = id;
-    this.updateTime = `${+new Date(updateTime)}`;
+    this.updateTime = updateTime;
 
     // 是否取本地数据
     wx.getStorage({
       key: `post_${id}`,
       success: function (res) {
         const { data, updateTime } = res.data
-        if (updateTime === this.updateTime) {
+        if (this.updateTime <= updateTime) {
           this.setPostData(data);
         } else {
           this.getData(id);
@@ -71,6 +76,7 @@ Page({
   },
 
   fetchError: function () {
+    wx.stopPullDownRefresh();
     this.setData({
       isLoadError: true,
       isLoading: false,
@@ -94,8 +100,9 @@ Page({
 
     const db = wx.cloud.database();
     db.collection('post').doc(id).get().then((res) => {
+      wx.stopPullDownRefresh();
       this.setPostData(res.data.data);
-      this.setStorageData(res.data.data)
+      this.setStorageData(res.data.data);
     }).catch(() => {
       this.fetchError();
     });

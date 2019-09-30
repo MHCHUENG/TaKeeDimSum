@@ -12,6 +12,10 @@ Page({
     }
   },
 
+  onPullDownRefresh: function () {
+    this.getData(); 
+  },
+
   onLoad: function () {
     this.getData();
 
@@ -27,6 +31,7 @@ Page({
   },
 
   fetchError: function () {
+    wx.stopPullDownRefresh();
     this.setData({
       isLoadError: true,
       isLoading: false,
@@ -37,9 +42,9 @@ Page({
     this.getData();
   },
 
-  setListData: function (res) {
+  setListData: function (data) {
     this.setData({
-      list: res.data,
+      list: data,
       isLoading: false,
       isLoadError: false
     })
@@ -61,7 +66,15 @@ Page({
     db.collection('story').where({
       isHide: false
     }).get().then((res) => {
-      this.setListData(res)
+      wx.stopPullDownRefresh();
+      res.data.forEach((item) => {
+        let dateStr = item.updateTime
+        if (typeof dateStr !== 'string') {
+          dateStr = JSON.stringify(item.updateTime).replace(/"/g, '');
+        }
+        item.updateTime = +new Date(dateStr);
+      });
+      this.setListData(res.data)
     }).catch(() => {
       this.fetchError();
     });

@@ -25,7 +25,6 @@
   </view>
 </view>
 
-
 <view class="post" wx:if="{{!isLoading}}">
   <block wx:for="{{list}}" wx:key="id">
     <view class="post_item">
