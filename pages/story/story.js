@@ -46,7 +46,7 @@ Page({
     this.setData({
       list: data,
       isLoading: false,
-      isLoadError: false 
+      isLoadError: false
     })
   },
 
